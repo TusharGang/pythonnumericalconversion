@@ -1,6 +1,66 @@
+#Write a code that translates decimal numbers into binary numbers or hexadecimal numbers and vice versa. 
+def decimaltobinary():
+    user_decimal_val = int(input("Enter a decimal value to convert it to binary: "))
+    if user_decimal_val < 0:
+        raise ValueError("Input must be a non-negative integer")
+
+    binary_list = []
+
+    while user_decimal_val > 0:
+        remainder = user_decimal_val % 2
+        binary_list.append(remainder)
+        user_decimal_val //= 2
+
+    binary_list.reverse()
+    print("Binary number:", ''.join(map(str, binary_list)))
+
+def binarytodecimal():
+    while True:
+        binary_num = input("Enter a binary number to convert it to a decimal number: ")
+        
+        if all(bit in '01' for bit in binary_num):
+            decimal = int(binary_num, 2)
+            print("Decimal number:", decimal)
+            break   
+        else:
+            print("Invalid binary number. Please enter a valid binary number.")
+    
+
+
+def decimaltohexadecimal():
+    decimal_number = int(input("Enter a decimal number to convert it to a hexadecimal number: "))
+    if decimal_number < 0:
+        raise ValueError("Input must be a non-negative integer")
+
+    if decimal_number == 0:
+        print('0')
+
+    hex_digits = "0123456789ABCDEF"
+    hexadecimal = ''
+
+    while decimal_number > 0:
+        remainder = decimal_number % 16
+        hexadecimal = hex_digits[remainder] + hexadecimal
+        decimal_number //= 16
+
+    print(hexadecimal)
+
+def hexadecimaltodecimal():
+    hexadecimal_num = input("Enter a Hexadecimal number to convert it to a decimal number: ")
+    if not all(char.upper() in "0123456789ABCDEF" for char in hexadecimal_num):
+        raise ValueError("Input must be a valid hexadecimal string")
+
+    decimal_number = 0
+    hex_digits = "0123456789ABCDEF"
+
+    for digit in hexadecimal_num.upper()[::-1]:
+        decimal_number = decimal_number * 16 + hex_digits.index(digit)
+
+    print(decimal_number)
+
 def binarytohexadecimal():
     while True:
-        binary_num = input("Enter a binary number: ")
+        binary_num = input("Enter a binary number to convert it to a hexadecimal number: ")
         
         if all(bit in '01' for bit in binary_num):
             decimal = int(binary_num, 2)
@@ -18,6 +78,301 @@ def binarytohexadecimal():
                 decimal //= 16
 
             print("Hexadecimal number:", hexadecimal)
-            break  # Exit the loop if a valid binary number is entered
+            break  
         else:
             print("Invalid binary number. Please enter a valid binary number.")
+
+def hexadecimaltobinary():
+    hexadecimal_num = input("Enter a Hexadecimal number to convert it to a binary number: ")
+    if not all(char.upper() in "0123456789ABCDEF" for char in hexadecimal_num):
+        raise ValueError("Input must be a valid hexadecimal string")
+
+    decimal_number = 0
+    hex_digits = "0123456789ABCDEF"
+
+    for digit in hexadecimal_num.upper()[::-1]:
+        decimal_number = decimal_number * 16 + hex_digits.index(digit)
+
+    binary_list = []
+
+    while decimal_number > 0:
+        remainder = decimal_number % 2
+        binary_list.append(remainder)
+        decimal_number = decimal_number // 2
+
+    binary_list.reverse()
+    print("Binary number:", ''.join(map(str, binary_list)))
+
+while True:
+    userchoice = int(input("What conversion do you want to do for the numbers: \n(1) decimal to binary\n(2) binary to decimal\n(3) decimal to hexadecimal\n(4) hexadecimal to decimal\n(5) binary to hexadecimal\n(6) hexadecimal to binary\n(7) Quit\nEnter the number that corresponds to your choice: "))
+    
+    if userchoice == 1:
+        decimaltobinary()
+        
+    elif userchoice == 2:
+        binarytodecimal()
+    
+    elif userchoice == 3:
+        decimaltohexadecimal()
+    
+    elif userchoice == 4:
+        hexadecimaltodecimal()
+        
+    elif userchoice == 5:
+        binarytohexadecimal()
+     
+    elif userchoice == 6:
+        hexadecimaltobinary()
+        
+    elif userchoice == 7:
+        break
+    
+    else:
+        print("Invalid choice. Please enter a valid option.")
+
+        
+        
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
